@@ -1,8 +1,9 @@
  package Mobile;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.By.ByLinkText;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -19,7 +20,16 @@ public static void main(String[] args) throws InterruptedException {
      driver.findElement(By.id("identifierId")).sendKeys("rashmiwaghmare1@gmail.com");
      driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[2]/div/div[1]/div/div/button/span")).click();
      String g=driver.getTitle();
-     System.out.println(g);
+     System.out.println(g+" Title of web page");
+     JavascriptExecutor js=(JavascriptExecutor)driver;
+     js.executeScript("alert('this is alert message')");
+     Alert alt=driver.switchTo().alert();
+     alt.accept();
+     Thread.sleep(2000);
+     
+    
+
+
      
 }
  }
